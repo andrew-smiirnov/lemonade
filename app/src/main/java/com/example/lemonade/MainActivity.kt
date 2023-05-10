@@ -129,39 +129,38 @@ fun LemonPreview() {
 }
 
 @Composable
-fun TextAndImage (
+fun TextAndImage(
     paint: Int,
     content: Int,
     text: Int,
     onImageClick: () -> Unit,
     modifier: Modifier = Modifier
-        )
-    {
-        Box(
-            modifier = modifier
-        ) {
-
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize()
+) {
+    Box(
+        modifier = modifier
     ) {
-        Button(
-            onClick = onImageClick,
-            shape = RoundedCornerShape(16.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.background),
-            border = BorderStroke(2.dp, color = Color(0xFF69CDD8))
-        )
-        {
-            Image(
-                painter = painterResource(paint),
-                contentDescription = stringResource(content),
-                modifier = Modifier
-                    .wrapContentSize()
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Button(
+                onClick = onImageClick,
+                shape = RoundedCornerShape(16.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.background),
+                border = BorderStroke(2.dp, color = Color(0xFF69CDD8))
+            )
+            {
+                Image(
+                    painter = painterResource(paint),
+                    contentDescription = stringResource(content),
+                    modifier = Modifier
+                        .wrapContentSize()
                 )
-        }
-        Spacer(modifier = Modifier.height(32.dp))
-        Text(text = stringResource(text))
+            }
+            Spacer(modifier = Modifier.height(32.dp))
+            Text(text = stringResource(text))
         }
     }
 }
